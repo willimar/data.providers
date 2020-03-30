@@ -35,6 +35,9 @@ IDataSet -> Has contract to data transactions
 To see a example use test project
 
 Use docker container to tests, bellow has code to run the containers
+
 	docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password key -d mysql:8
+
 	docker run -d -p 27017-27019:27017-27019 --name mongodb mongo
+	
 	docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<password key>" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
