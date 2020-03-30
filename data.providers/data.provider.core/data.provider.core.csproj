@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+    <Authors>Rocha, Willimar</Authors>
+    <Description>Domain to data providers in application CRUD.</Description>
+    <Copyright>Willimar 2019 ©</Copyright>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <FileVersion>1.0.1.1</FileVersion>
+    <PackageProjectUrl>https://github.com/willimar/data.providers</PackageProjectUrl>
+  </PropertyGroup>
+
+</Project>

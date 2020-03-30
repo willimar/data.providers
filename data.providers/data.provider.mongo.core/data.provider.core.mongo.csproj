@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+    <Authors>Rocha, Willimar</Authors>
+    <Description>Provider to conect in MongoDb. Has simples query, append, change, delete records.
+
+Can easely use in CRUD applications.</Description>
+    <Copyright>Willimar 2019 ©</Copyright>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <FileVersion>1.0.1.1</FileVersion>
+    <PackageProjectUrl>https://github.com/willimar/data.providers</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\data.provider.core\data.provider.core.csproj" />
+  </ItemGroup>
+
+</Project>
