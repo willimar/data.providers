@@ -9,7 +9,7 @@ namespace data.provider.core.mongo
     {
         private IMongoDatabase _dbConnection;
 
-        public DataProvider(MongoClient context, string dataBase)
+        public DataProvider(IMongoClient context, string dataBase)
         {
             this._dbConnection = context.GetDatabase(dataBase);
         }

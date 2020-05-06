@@ -42,8 +42,13 @@ namespace data.provider.core.mongo
             this._mongoCollection = null;
         }
 
-        public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, int limit = 0)
+        public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, int limit = 0, int page = 0)
         {
+            if (page > 0 && limit > 0)
+            {
+                return this._mongoCollection.Find(predicate).Skip((page - 1) * limit).Limit(limit).ToList();
+            }
+
             if (limit > 0)
             {
                 return this._mongoCollection.Find(predicate).Limit(limit).ToList();

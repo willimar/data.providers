@@ -49,9 +49,14 @@ namespace data.provider.core.sqlserver
             this._dbSet = null;
         }
 
-        public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, int limit = 0)
+        public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, int limit = 0, int page = 0)
         {
             IQueryable<TEntity> result = null;
+
+            if (page > 0 && limit > 0)
+            {
+                return this._dbSet.Where(predicate).Skip((page - 1) * limit).Take(limit);
+            }
 
             if (limit > 0)
             {

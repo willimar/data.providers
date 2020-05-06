@@ -49,8 +49,13 @@ namespace data.provider.core.mysql
             this._dbSet = null;
         }
 
-        public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, int limit = 0)
+        public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, int limit = 0, int page = 0)
         {
+            if (page > 0 && limit > 0)
+            {
+                return this._dbSet.Where(predicate).Skip((page - 1) * limit).Take(limit);
+            }
+
             if (limit > 0)
             {
                 return this._dbSet.Where(predicate).Take(limit);
