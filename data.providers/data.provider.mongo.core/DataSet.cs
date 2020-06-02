@@ -57,6 +57,28 @@ namespace data.provider.core.mongo
             return this._mongoCollection.Find(predicate).ToList();
         }
 
+        public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, List<Expression<Func<TEntity, object>>> sortFields, int limit = 0, int page = 0)
+        {
+            var find = this._mongoCollection.Find(predicate);
+
+            foreach (var item in sortFields)
+            {
+                find = find.SortBy(item);
+            }
+
+            if (page > 0 && limit > 0)
+            {
+                find = find.Skip((page - 1) * limit).Limit(limit);
+            }
+
+            if (limit > 0)
+            {
+                find = find.Limit(limit);
+            }
+
+            return find.ToList();
+        }
+
         public long UpdateRecords(Expression<Func<TEntity, bool>> predicate, TEntity entity)
         {
             var result = this._mongoCollection.ReplaceOne(predicate, entity);

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1.3</Version>
+    <Version>1.0.2.1</Version>
     <Authors>Rocha, Willimar</Authors>
     <Description>Provider to conect in MySQL Databases. Has simples query, append, change, delete records.
 
