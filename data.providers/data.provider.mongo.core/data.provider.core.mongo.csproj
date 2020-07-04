@@ -14,7 +14,7 @@ Can easely use in CRUD applications.</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
   </ItemGroup>
 
   <ItemGroup>

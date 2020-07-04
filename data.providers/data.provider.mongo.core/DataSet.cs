@@ -44,17 +44,19 @@ namespace data.provider.core.mongo
 
         public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, int limit = 0, int page = 0)
         {
+            var find = this._mongoCollection.Find(predicate);
+
             if (page > 0 && limit > 0)
             {
-                return this._mongoCollection.Find(predicate).Skip((page - 1) * limit).Limit(limit).ToList();
+                find = find.Skip((page - 1) * limit).Limit(limit);
             }
 
             if (limit > 0)
             {
-                return this._mongoCollection.Find(predicate).Limit(limit).ToList();
+                find = find.Limit(limit);
             }
-            
-            return this._mongoCollection.Find(predicate).ToList();
+
+            return find.ToList();
         }
 
         public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, List<Expression<Func<TEntity, object>>> sortFields, int limit = 0, int page = 0)
