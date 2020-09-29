@@ -12,7 +12,7 @@ namespace data.provider.core.mongo
 
         public DataSet(IMongoDatabase database)
         {
-            this._mongoCollection = database.GetCollection<TEntity>(typeof(TEntity).ToString()); ;
+            this._mongoCollection = database.GetCollection<TEntity>(typeof(TEntity).Name); ;
         }
 
         public void Append(IEnumerable<TEntity> entity)

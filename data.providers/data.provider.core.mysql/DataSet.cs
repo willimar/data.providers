@@ -51,19 +51,19 @@ namespace data.provider.core.mysql
 
         public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, int limit = 0, int page = 0)
         {
+            var find = this._dbSet.Where(predicate);
+
             if (page > 0 && limit > 0)
             {
-                return this._dbSet.Where(predicate).Skip((page - 1) * limit).Take(limit);
+                find = find.Skip((page - 1) * limit).Take(limit);
             }
 
             if (limit > 0)
             {
-                return this._dbSet.Where(predicate).Take(limit);
+                find = find.Take(limit);
             }
-            else
-            {
-                return this._dbSet.Where(predicate);
-            }
+
+            return find.ToList();
         }
 
         public IEnumerable<TEntity> GetEntities(Expression<Func<TEntity, bool>> predicate, List<Expression<Func<TEntity, object>>> sortFields, int limit = 0, int page = 0)
