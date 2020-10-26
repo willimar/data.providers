@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.3.2</Version>
+    <Version>1.0.3.3</Version>
     <Authors>Rocha, Willimar</Authors>
     <Description>Provider to conect in MongoDb. Has simples query, append, change, delete records.
 
@@ -14,7 +14,7 @@ Can easely use in CRUD applications.</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
+    <PackageReference Include="MongoDB.Driver" Version="2.11.3" />
   </ItemGroup>
 
   <ItemGroup>
